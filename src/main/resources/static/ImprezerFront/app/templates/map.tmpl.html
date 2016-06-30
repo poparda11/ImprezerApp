@@ -1,0 +1,16 @@
+<md-dialog id="map_pop_up" aria-label="Place picker" flex="80" style="min-height: 80%">
+    <md-toolbar>
+    <div class="md-toolbar-tools">
+        <h2>Choose your place</h2>
+    </div>
+    </md-toolbar>
+    <md-content id="map_container" class="md-padding" flex>
+        <div id="map"></div>
+    </md-content>
+    <md-dialog-actions layout="row">
+        <md-button ng-click="clearMarker()"> Clear</md-button>
+        <span flex></span>
+        <md-button ng-click="hideDialog()"> Cancel</md-button>
+        <md-button ng-click="savePlace()" class="md-primary"> Save</md-button>
+    </md-dialog-actions>
+</md-dialog>

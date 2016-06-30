@@ -1,0 +1,95 @@
+<md-dialog aria-label="Add event" flex="80" style="max-height: 90%">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Add event</h2>
+        </div>
+    </md-toolbar>
+    <md-content class="md-padding" flex>
+        <md-list layout="column" flex>
+            <!--<form name="userForm">-->
+            <md-list-item flex>
+                <md-input-container flex>
+                    <label>Event name</label>
+                    <input ng-model="addedEvent.name">
+                </md-input-container>
+            </md-list-item>
+            <md-list-item flex>
+                <h4>FROM</h4>
+            </md-list-item>
+            <md-list-item flex>
+                <mdp-date-picker mdp-placeholder="Begin date"
+                                 ng-model="addedEvent.begin_date"></mdp-date-picker>
+                <mdp-time-picker mdp-placeholder="Begin time" mdp-auto-switch="true"
+                                 ng-model="addedEvent.begin_date"></mdp-time-picker>
+            </md-list-item>
+            <md-list-item flex>
+                <h4>TO</h4>
+            </md-list-item>
+            <md-list-item flex>
+                <mdp-date-picker mdp-placeholder="End date"
+                                 ng-model="addedEvent.end_date"></mdp-date-picker>
+                <mdp-time-picker mdp-placeholder="End time" mdp-auto-switch="true"
+                                 ng-model="addedEvent.end_date"></mdp-time-picker>
+            </md-list-item>
+            <md-list-item flex>
+                <h4>PLACE</h4>
+            </md-list-item>
+            <md-list-item flex>
+                <md-input-container flex>
+                    <label>Place name</label>
+                    <input ng-model="addedEvent.place">
+                </md-input-container>
+            </md-list-item>
+            <md-list-item id="map_container" style="min-height: 300px">
+                <div id="map" style="width: 80%; align-content: center;"></div>
+                <!--<md-input-container flex>-->
+                <!--<md-button ng-click="showMap()" class="md-raised">Map</md-button>-->
+                <!--</md-input-container>-->
+            </md-list-item>
+            <md-list-item flex>
+                <h4>DETAILS</h4>
+            </md-list-item>
+            <md-list-item flex>
+                <md-input-container>
+                    <label>Events categories</label>
+                    <md-select ng-model="addedEvent.categories" multiple>
+                        <md-option ng-value="category.value"
+                                   ng-repeat="category in categories">
+                            {{category.name}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+            </md-list-item>
+            <md-list-item flex>
+                <md-input-container>
+                    <md-switch class="md-primary" md-no-ink aria-label="Alcohol" ng-model="addedEvent.alcohol">
+                        Alcohol
+                    </md-switch>
+                </md-input-container>
+            </md-list-item>
+            <md-list-item flex>
+                <md-input-container>
+                    <md-switch class="md-primary" md-no-ink aria-label="Paid entrance"
+                               ng-model="addedEvent.paidEntrance">
+                        Paid entrance
+                    </md-switch>
+                </md-input-container>
+            </md-list-item>
+            <md-list-item flex>
+                <md-input-container class="md-block" flex>
+                    <label>Event details</label>
+                    <textarea ng-model="addedEvent.details" md-maxlength="1000" rows="5" md-select-on-focus></textarea>
+                </md-input-container>
+            </md-list-item>
+            <md-list-item id="error_message" flex ng.show="addEventError!==undefined">
+                <h5 style="color: red;">{{addEventError}}</h5>
+            </md-list-item>
+        </md-list>
+        <!--</form>-->
+    </md-content>
+    <md-dialog-actions layout="row">
+        <span flex></span>
+        <md-button ng-click="cancel()"> Cancel</md-button>
+        <md-button ng-click="verifyAndAddEvent()" class="md-primary"> Add event</md-button>
+    </md-dialog-actions>
+</md-dialog>

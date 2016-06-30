@@ -1,0 +1,10 @@
+<md-bottom-sheet class="md-list md-has-header">
+    <md-subheader>Settings</md-subheader>
+    <md-list>
+        <md-item ng-repeat="item in items">
+            <md-item-content md-ink-ripple flex class="inset">
+                <md-button ng-click="{{item.action}}"> {{item.name}}</md-button>
+            </md-item-content>
+        </md-item>
+    </md-list>
+</md-bottom-sheet>

@@ -1,0 +1,56 @@
+<md-dialog aria-label="Event details" flex="80" style="max-height: 90%">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Add event</h2>
+        </div>
+    </md-toolbar>
+    <md-content class="md-padding" flex>
+        <!--TODO set up proper listener-->
+        <div layout="row" layout-align="center start">
+            <img class="png-icon" ng-src="assets/imprezer_icon.png"
+                 style="width: 24px; height: 24px;">
+            <h3> {{event.name}} </h3>
+            <img class="png-icon" ng-src="assets/imprezer_icon.png"
+                 style="width: 24px; height: 24px;">
+        </div>
+        <div layout="row" layout-align="center start">
+            <div layout="row" layout-align="center start" flex="50">
+                <h4>SINCE:&nbsp; {{event.beginDateTime}}</h4>
+            </div>
+            <div layout="row" layout-align="center start" flex>
+                <h4>UNTIL:&nbsp;{{event.endDateTime}}</h4>
+            </div>
+        </div>
+        <div layout="column" layout-align="center">
+            <div class="mapToggler" layout="row" layout-align="center" ng-click="toggleMap()">
+                <h4>WHERE:&nbsp;</h4>
+                <h5>{{event.place}}&nbsp;&nbsp;</h5>
+                <img class="png-icon" src="assets/marker.png" style="width: 30px; height: 30px;">
+            </div>
+            <div id="map_container" layout-align="center center" style="width: 100%;" ng-show="!mapVisible">
+                <div id="map" style="width: 80%; align-content: center;"></div>
+            </div>
+
+        </div>
+        <div layout="row" layout-align="center start">
+            <div layout="row" layout-align="center start" flex="50">
+                <h4>ALCOHOL:&nbsp; {{details.alcohol}}</h4>
+            </div>
+            <div layout="row" layout-align="center start" flex>
+                <h4>PAID:&nbsp; {{details.paid}}</h4>
+            </div>
+        </div>
+        <div layout="row" layout-align="center center">
+            <md-card ng-repeat="cat in event.categories" layout-padding>
+                <h5>{{cat}}</h5>
+            </md-card>
+        </div>
+        <md-card layout-align="center start"
+                 style="width: 100%; padding-left: 5%; padding-right: 5%; padding-top: 10px; padding-bottom: 10px;">
+            <div>
+                <h4>DETAILS</h4>
+                <div>{{details.details}}</div>
+            </div>
+        </md-card>
+    </md-content>
+</md-dialog>
